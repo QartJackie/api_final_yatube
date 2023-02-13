@@ -60,6 +60,7 @@ class FollowViewSet(viewsets.ModelViewSet):
     filter_backends = (filters.SearchFilter,)
     search_fields = ('following__username',)
     permission_classes = (IsAuthenticated, IsAuthorOrReadOnly)
+    pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
         """Переопределение queryset функции."""
